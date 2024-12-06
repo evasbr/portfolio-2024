@@ -20,7 +20,7 @@ const getProjects = async() => {
 
     return res.json();
   } catch (error) {
-    console.log("Error loading topics");
+    console.log("Error loading topics : " + error);
   }
 }
 
@@ -97,9 +97,9 @@ export default function Home() {
         {/* Hero section */}
         <section className="h-screen flex flex-col justify-center items-stretch overflow-hidden gap-20">
           
-          <h1 className='warning-text text-wrapper font-bold text-6xl text-center'>Let’s Create Something Amazing Together</h1>
+          <h1 className='warning-text text-wrapper font-bold text-6xl text-center'>Let&apos;s Create Something Amazing Together</h1>
           <div className="container text-center text-3xl flex flex-col items-center">
-            <span className="text first-text">I'm a</span> <br />
+            <span className="text first-text">I&apos;m a</span> <br />
             <span className="text sec-text"></span>
           </div>
         </section>
@@ -112,10 +112,10 @@ export default function Home() {
               <img className='object-cover shadow-card rounded-xl' src="https://i.ibb.co.com/5s8TYhT/foto-bebas.jpg" alt="profile pic" />
             </div>
             <div className='p-5 flex-1 flex flex-col gap-10 items-center'>
-              <h3 className='text-4xl font-bold'>Hello I'm Eva</h3>
-              <p className='text-xl'>Currently studying for a Bachelor's degree in Informatics, computer science.</p>
+              <h3 className='text-4xl font-bold'>Hello I&apos;m Eva</h3>
+              <p className='text-xl'>Currently studying for a Bachelor&apos;s degree in Informatics, computer science.</p>
               <p className='text-xl'>I wake up in the morning, grab a cup of timmies coffee, open up my laptop and build things that live on the web all day, everyday.</p>
-              <p className='text-xl'>People who know me say I'm obsessed, that's fair, I am very driven and love learning new things.</p>
+              <p className='text-xl'>People who know me say I&apos;m obsessed, that&apos;s fair, I am very driven and love learning new things.</p>
               <Link href='/about'><Button size='big'>More About Me<HiArrowNarrowRight/> </Button></Link>
             </div>
           </div>

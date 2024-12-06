@@ -27,8 +27,8 @@ const getProjects = async() => {
       if(!res.ok){
         throw new Error('Failed to fetch topics');
       }
-  
       return res.json();
+      
     } catch (error) {
       console.log("Error loading topics");
     }
@@ -117,7 +117,7 @@ const Portfolio = () => {
                     filteredProjects.length == 0 ? 
                     <p className="text-center col-span-full row-span-full">Tidak ada proyek yang kamu cari</p>
                     :
-                    filteredProjects.map((item, index) => (
+                    filteredProjects.map((item) => (
                         <div key={item._id} className="group flex flex-col hover:bg-foreground/20 border transition-colors duration-100">
                             <Link href={item.urlToProject}>
                                 <div className="relative w-full" style={{ paddingTop: "100%" }}> {/* Maintains aspect ratio */}

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import Image from "next/image"
 import Button from "./button"
-import { HiMoon, HiOutlineSun, HiMenu } from "react-icons/hi";
+import { HiMoon, HiOutlineSun} from "react-icons/hi";
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
