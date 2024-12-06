@@ -172,8 +172,8 @@ export default function Home() {
 
           <div className='flex flex-col md:flex-row gap-5 mb-20'>
             {filteredProjects.map((item) => (
-              <Link href={item.urlToProject}>
-                <div key={item._id} className='flex flex-col items-center'>
+              <Link key={item._id} href={item.urlToProject}>
+                <div className='flex flex-col items-center'>
                   <div className='card_container group relative mt-5'>
                     <img
                       className='img_card object-contain'
