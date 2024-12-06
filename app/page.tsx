@@ -172,21 +172,23 @@ export default function Home() {
 
           <div className='flex flex-col md:flex-row gap-5 mb-20'>
             {filteredProjects.map((item) => (
-              <div key={item._id} className='flex flex-col items-center'>
-                <div className='card_container group relative mt-5'>
-                  <img
-                    className='img_card object-contain'
-                    src={item.image[0] ? item.image[0] : 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg'}
-                    alt={item.title}
-                  />
-                  <div className='opacity-0 group-hover:opacity-100 transition-opacity text-white flex flex-col justify-center p-5 text-background absolute bottom-0 left-0 right-0 top-0 bg-black/70 gap-5'>
-                    <h4 className='font-bold text-xl'>{item.title}</h4>
-                    <p>{item.synopsis}</p>
-                    <Button inverted size='small'>More<HiArrowNarrowRight /></Button>
+              <Link href={item.urlToProject}>
+                <div key={item._id} className='flex flex-col items-center'>
+                  <div className='card_container group relative mt-5'>
+                    <img
+                      className='img_card object-contain'
+                      src={item.image[0] ? item.image[0] : 'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg'}
+                      alt={item.title}
+                    />
+                    <div className='opacity-0 group-hover:opacity-100 transition-opacity text-white flex flex-col justify-center p-5 text-background absolute bottom-0 left-0 right-0 top-0 bg-black/70 gap-5'>
+                      <h4 className='font-bold text-xl'>{item.title}</h4>
+                      <p>{item.synopsis}</p>
+                      <Button inverted size='small'>More<HiArrowNarrowRight /></Button>
+                    </div>
                   </div>
+                  <p className='mt-3 text-xl font-bold'>{item.title}</p>
                 </div>
-                <p className='mt-3 text-xl font-bold'>{item.title}</p>
-              </div>
+              </Link>
             ))}
           </div>
           <Button size='big'><Link href="/portfolio">More of My Projects</Link><HiArrowNarrowRight /> </Button>
