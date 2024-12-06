@@ -13,7 +13,7 @@ const options = {
 const connectDB = async () => {
     if (mongoose.connection.readyState === 0) { // 0 means disconnected
         try {
-            const uri = process.env.MONGODB_URL;
+            const uri = process.env.MONGODB_URI;
             console.log(uri);
             await mongoose.connect(uri, options);
             console.log("Connected to database");
