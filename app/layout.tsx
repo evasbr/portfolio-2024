@@ -4,14 +4,14 @@ import Providers from "./components/themeProvider";
 import { Outfit, DM_Serif_Text } from "next/font/google";
 import { ThemeModeProvider } from "@/libs/ThemeModeProvider";
 
-export const outfit = Outfit({
+const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-outfit",
   weight: ["300", "400", "500", "600", "700"],
 });
 
-export const dmSerif = DM_Serif_Text({
+const dmSerif = DM_Serif_Text({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
