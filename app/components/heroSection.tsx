@@ -22,14 +22,14 @@ export default function HeroSection() {
       <CloudDecor />
       {resolvedTheme === "dark" ? (
         <img
-          src="/moon.svg"
-          alt="aa"
+          src="https://res.cloudinary.com/dx85szvao/image/upload/v1750775989/moon_ycatfn.webp"
+          alt="Moon"
           className="w-[30%] lg:w-[20%] absolute top-[50%] translate-y-[-80%] -z-50 right-[35%] lg:right-[30%] "
         />
       ) : (
         <img
-          src="/kite.svg"
-          alt="aa"
+          src="https://res.cloudinary.com/dx85szvao/image/upload/v1750775987/kite_ocaox7.webp"
+          alt="Kite"
           className="w-[70%] absolute top-[50%] translate-y-[-50%] -z-50 -right-5 "
         />
       )}

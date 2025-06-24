@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Button from "./button";
 import { HiArrowNarrowRight } from "react-icons/hi";

@@ -42,9 +42,9 @@ export default function Navbar() {
             <li>
               <Link href="/">
                 <span
-                  className={`py-3 px-5 block transition-colors duration-100 ${
+                  className={`py-3 px-5 rounded-xl block transition-colors duration-100 ${
                     pathname === "/"
-                      ? "bg-white/25 rounded-xl font-semibold"
+                      ? "bg-white/25 font-semibold"
                       : "hover:bg-foreground hover:text-blue-500"
                   }`}
                 >
@@ -55,9 +55,9 @@ export default function Navbar() {
             <li>
               <Link href="/projects">
                 <span
-                  className={`py-3 px-5 block transition-colors duration-100 ${
+                  className={`py-3 px-5 block rounded-xl  transition-colors duration-100 ${
                     pathname === "/projects"
-                      ? "bg-white/25 rounded-xl font-semibold"
+                      ? "bg-white/25 font-semibold"
                       : "hover:bg-foreground hover:text-blue-500"
                   }`}
                 >
@@ -68,9 +68,9 @@ export default function Navbar() {
             <li>
               <Link href="/about">
                 <span
-                  className={`py-3 px-5 block transition-colors duration-100 ${
+                  className={`py-3 px-5 rounded-xl  block transition-colors duration-100 ${
                     pathname === "/about"
-                      ? "bg-white/25 rounded-xl font-semibold"
+                      ? "bg-white/25 font-semibold"
                       : "hover:bg-foreground hover:text-blue-500"
                   }`}
                 >
@@ -105,10 +105,10 @@ export default function Navbar() {
             <li>
               <Link href="/" onClick={() => setIsExpanded(false)}>
                 <span
-                  className={`py-2 px-3 block transition-colors duration-100 rounded-md ${
+                  className={`py-2 px-3 block rounded-md transition-colors duration-100  ${
                     pathname === "/"
-                      ? "bg-white/25 rounded-xl font-semibold"
-                      : "hover:bg-foreground hover:text-blue-100"
+                      ? "bg-white/25 font-semibold"
+                      : "hover:bg-foreground hover:text-blue-500"
                   }`}
                 >
                   Home
@@ -118,9 +118,9 @@ export default function Navbar() {
             <li>
               <Link href="/projects" onClick={() => setIsExpanded(false)}>
                 <span
-                  className={`py-2 px-3 block transition-colors duration-100 rounded-md ${
+                  className={`py-2 px-3 block rounded-md transition-colors duration-100 ${
                     pathname === "/projects"
-                      ? "bg-white/25 rounded-xl font-semibold"
+                      ? "bg-white/25  font-semibold"
                       : "hover:bg-foreground hover:text-blue-500"
                   }`}
                 >
@@ -133,7 +133,7 @@ export default function Navbar() {
                 <span
                   className={`py-2 px-3 block transition-colors duration-100 rounded-md ${
                     pathname === "/about"
-                      ? "bg-white/25 rounded-xl font-semibold"
+                      ? "bg-white/25 font-semibold"
                       : "hover:bg-foreground hover:text-blue-500"
                   }`}
                 >

@@ -8,6 +8,7 @@ interface ButtonProps {
   inverted?: boolean;
   className?: string;
 }
+
 const Button: React.FC<ButtonProps> = ({
   onClick,
   children,
@@ -41,10 +42,10 @@ const Button: React.FC<ButtonProps> = ({
       className={`bg-white text-bforeground rounded-lg border flex justify-center items-center gap-2
         hover:-translate-y-1    
         transition-all duration-150
-            ${additionalClass} 
-            ${invertStyle}   
-            ${className}       
-        `}
+        ${additionalClass} 
+        ${invertStyle}   
+        ${className}       
+      `}
       onClick={onClick}
     >
       {children}
