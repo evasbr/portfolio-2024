@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import CloudDecor from "./CloudDecor";
+import { FaArrowDownLong, FaLocationDot } from "react-icons/fa6";
+import { Tech, techData } from "../assets/projects";
+import Button from "./button";
+import Link from "next/link";
 
 export default function HeroSection() {
-  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -13,105 +15,83 @@ export default function HeroSection() {
   if (!mounted) return null;
   return (
     <section
-      className={` ${
-        resolvedTheme == "dark" ? "bg-[url('/stars.svg')] bg-repeat" : ""
-      }
-    
+      className={`   
     relative p-5 h-screen flex flex-col justify-center items-center`}
     >
       <CloudDecor />
-      {resolvedTheme === "dark" ? (
-        <img
-          src="https://res.cloudinary.com/dx85szvao/image/upload/v1750775989/moon_ycatfn.webp"
-          alt="Moon"
-          className="w-[30%] lg:w-[20%] absolute top-[50%] translate-y-[-80%] -z-50 right-[35%] lg:right-[30%] "
-        />
-      ) : (
-        <img
-          src="https://res.cloudinary.com/dx85szvao/image/upload/v1750775987/kite_ocaox7.webp"
-          alt="Kite"
-          className="w-[70%] absolute top-[50%] translate-y-[-50%] -z-50 -right-5 "
-        />
-      )}
 
-      <div className="flex flex-col lg:flex-row justify-center items-center ">
-        <div className="flex-1">
-          <h1
-            className="
-            font-medium text-6xl text-center font-serif
-            md:text-6xl
-            lg:text-7xl lg:text-start lg:font-bold
-          "
-          >
-            Let&apos;s Create Something Amazing Together
-          </h1>
-
-          <h2
-            className="
-            text-2xl font-thin mt-7 text-center
-            lg:text-3xl lg:mt-6 lg:text-start
-          "
-          >
-            I&apos;m Eva, a Programmer
-          </h2>
-        </div>
-
+      <div className="flex flex-col lg:gap-32 lg:flex-row-reverse justify-center items-center">
         <div
           className="
-            flex mt-10 gap-2 justify-center 
-            flex-1 lg:flex-col lg:items-end lg:gap-8"
+            flex gap-2 justify-center 
+            flex-auto lg:flex-col lg:items-end lg:gap-8"
         >
-          <div
-            className="
-            flex-1 flex justify-center items-center gap-3 glass-effect
-            px-4 py-2 rounded-xl
-            lg:px-10 lg:py-6 lg:rounded-3xl lg:min-w-[400px]
-            "
-          >
-            <p
+          <img
+            className="aspect-square rounded-full max-w-32 lg:max-w-52 object-cover"
+            src="https://res.cloudinary.com/dx85szvao/image/upload/v1750563350/self_p0cfh6.webp"
+            alt="profile pic"
+          />
+        </div>
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
+            <h2
               className="
-            text-3xl font-bold
-            lg:text-7xl "
+            text-center
+            text-2xl
+            lg:text-3xl/8 lg:text-start
+          "
             >
-              3
-            </p>
-            <p
-              className="
-            text-sm
-            lg:text-3xl"
-            >
-              Years of experience
-            </p>
-          </div>
-          <div
-            className="
+              I&apos;m Eva, a{" "}
+              <span className="font-semibold ">
+                Software Engineer/Backend Developer.
+              </span>{" "}
+            </h2>
 
-            flex-1 flex justify-center items-center gap-3 glass-effect
-            px-4 py-2 rounded-xl
-            lg:px-10 lg:py-6 lg:rounded-3xl lg:min-w-[400px]
-            "
-          >
-            <p
+            <h2
               className="
-            text-3xl font-bold
-            lg:text-7xl"
+            text-md font-thin text-center
+            lg:text-xl/5 lg:text-start 
+          "
             >
-              +7
-            </p>
-            <p
-              className="
-            text-sm
-            lg:text-3xl"
-            >
-              Projects made
-            </p>
+              Specializing in{" "}
+              <span className="font-semibold ">monolithic.</span> <br />
+              Learning progress in{" "}
+              <span className="font-semibold">microservices.</span>
+            </h2>
+          </div>
+
+          {/* Location */}
+          <p className="flex items-center justify-center text-xs gap-2 lg:justify-start lg:text-sm">
+            <FaLocationDot />
+            Jakarta, Indonesia (GMT+7)
+          </p>
+
+          {/* Tech list */}
+          <div className="flex gap-2 max-w-sm flex-wrap justify-center lg:justify-start">
+            {techData.map((item: Tech, index) => {
+              if (item.type === "tools") return null;
+              return (
+                <div key={index} className="p-2 glass-effect shine rounded-md">
+                  {" "}
+                  <item.icon size={20} />{" "}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Button */}
+          <div className="mt-5 lg:mt-0 flex gap-4 justify-center lg:justify-start">
+            <Link href="/projects">
+              <Button size={"small"}>View Projects</Button>
+            </Link>
+            <a href="#story">
+              <Button size={"small"}>
+                Learn more <FaArrowDownLong size={14} />
+              </Button>
+            </a>
           </div>
         </div>
       </div>
-
-      {/* <Button className="mt-12" size="big">
-        Start Exploring
-      </Button> */}
     </section>
   );
 }

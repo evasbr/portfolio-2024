@@ -3,6 +3,7 @@ import "./globals.css";
 import Providers from "./components/themeProvider";
 import { Outfit, DM_Serif_Text } from "next/font/google";
 import { ThemeModeProvider } from "@/libs/ThemeModeProvider";
+import Navbar from "./components/navbar";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
         className={` relative bg-multi-gradient bg-background text-foreground ${dmSerif.variable} ${outfit.className}`}
       >
         <Providers>
+          <Navbar></Navbar>
           <ThemeModeProvider>{children}</ThemeModeProvider>
         </Providers>
       </body>

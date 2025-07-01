@@ -8,6 +8,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useState, useEffect } from "react";
+import { Tech, techData } from "../assets/projects";
 
 type Role =
   | "All round"
@@ -203,8 +204,8 @@ export default function About() {
               enthusiast.
             </p>
             <p className="text-xl mb-4">
-              I’m at my second year of studying Computer Science in UPN
-              “Veteran” Jakarta, Indonesia.
+              I’m at my third year of studying Computer Science in UPN “Veteran”
+              Jakarta, Indonesia.
             </p>
             <p className="text-xl mb-4">
               I’ve always enjoyed creating things, but I’m not really into
@@ -235,14 +236,21 @@ export default function About() {
           <p className="text-3xl font-bold mb-4 font-serif">
             Programming Language
           </p>
-          <ul className="list-disc translate-x-5">
-            <li>Javascript</li>
-            <li>Java</li>
-            <li>C</li>
-            <li>C++</li>
-            <li>Python</li>
-            <li>Golang</li>
-          </ul>
+          <div className="flex gap-2 flex-wrap justify-center lg:justify-start">
+            {techData.map((item: Tech, index) => {
+              if (item.type === "tools") return null;
+              return (
+                <div
+                  key={index}
+                  className="p-2 text-xl glass-effect shine rounded-md flex gap-2 justify-center items-center"
+                >
+                  {" "}
+                  <item.icon />
+                  {item.name}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* FILTER */}
@@ -262,9 +270,9 @@ export default function About() {
 
         <section className="flex flex-col items-center">
           {/* SKILLS */}
-          <div>
+          <div className="w-full">
             <p className="text-3xl font-bold font-serif mt-10 mb-4">Skills</p>
-            <div className="glass-effect p-5 rounded-3xl mb-10 lg:flex gap-8 flex-wrap">
+            <div className="glass-effect p-5 rounded-3xl mb-10 lg:flex w-full gap-8">
               {filteredSkills.map((item: SkillData, index) => (
                 <div className="mb-4 lg:flex-1" key={index}>
                   <p className="font-serif text-2xl font-bold">{item.title}</p>
@@ -276,7 +284,7 @@ export default function About() {
                   {selectedRole && selectedRole !== "All round" && (
                     <>
                       <p className="font-semibold text-lg mt-5">Experience</p>
-                      <ul className="list-disc mb-2">
+                      <ul className="list-disc mb-2 ms-4">
                         {item.longContent.map((data, i) => (
                           <li key={i}>{data}</li>
                         ))}

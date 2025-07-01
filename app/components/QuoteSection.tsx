@@ -3,6 +3,7 @@ import Decor from "./Decor";
 export default function QuoteSection() {
   return (
     <section className="relative h-56 flex justify-center items-center mb-10">
+      <div className="absolute -top-10" id="story"></div>
       <Decor
         lightSrc="https://res.cloudinary.com/dx85szvao/image/upload/v1750499945/cloud-4-day_q3xd9k.webp"
         darkSrc="https://res.cloudinary.com/dx85szvao/image/upload/v1750498678/cloud-3-night_zoacyq.webp"

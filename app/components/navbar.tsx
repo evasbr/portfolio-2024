@@ -1,150 +1,89 @@
 "use client";
-
 import Link from "next/link";
-import { HiMenu, HiX } from "react-icons/hi";
-import Button from "./button";
 import ThemeSwitcher from "./themeSwitcher";
-import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { FaPuzzlePiece, FaUser } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { GoHomeFill } from "react-icons/go";
+
+type NavbarItem = {
+  name: string;
+  url: string;
+  icon: React.ReactElement;
+};
+
+const navbarData: NavbarItem[] = [
+  { name: "Home", url: "/", icon: <GoHomeFill size={20} /> },
+  { name: "Projects", url: "/projects", icon: <FaPuzzlePiece size={20} /> },
+  { name: "About", url: "/about", icon: <FaUser size={18} /> },
+];
 
 export default function Navbar() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-
-  const toggleDropdown = () => setIsExpanded((prev) => !prev);
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target as Node)
-    ) {
-      setIsExpanded(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const path = "/" + pathname.split("/")[1];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 max-w-3xl mx-auto">
-      <div className="border glass-effect rounded-full py-2 px-6 flex justify-between items-center">
-        {/* Logo */}
+    <nav className="fixed bottom-0 lg:bottom-auto lg:top-2 left-0 right-0 z-50 lg:max-w-3xl lg:mx-auto">
+      {/* Desktop */}
+      <div className="hidden lg:flex justify-between items-center glass-effect rounded-2xl py-2 px-6">
         <div className="font-bold">
           <span className="py-3 block">evasbr</span>
         </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-9 items-center">
-          <ul className="flex gap-9">
-            <li>
-              <Link href="/">
+        <ul className="flex gap-9 items-center relative">
+          {navbarData.map((item) => (
+            <li key={item.url} className="relative">
+              <Link href={item.url}>
                 <span
-                  className={`py-3 px-5 rounded-xl block transition-colors duration-100 ${
-                    pathname === "/"
-                      ? "bg-white/25 font-semibold"
-                      : "hover:bg-foreground hover:text-blue-500"
+                  className={`py-3 px-5 rounded-xl block transition-colors duration-200 ${
+                    pathname === item.url
+                      ? "text-white font-semibold"
+                      : " hover:text-blue-300"
                   }`}
                 >
-                  Home
+                  {item.name}
+                  {pathname === item.url && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute inset-0 z-[-1] bg-white/25 rounded-xl"
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
+                  )}
                 </span>
               </Link>
             </li>
-            <li>
-              <Link href="/projects">
-                <span
-                  className={`py-3 px-5 block rounded-xl  transition-colors duration-100 ${
-                    pathname === "/projects"
-                      ? "bg-white/25 font-semibold"
-                      : "hover:bg-foreground hover:text-blue-500"
-                  }`}
-                >
-                  Projects
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about">
-                <span
-                  className={`py-3 px-5 rounded-xl  block transition-colors duration-100 ${
-                    pathname === "/about"
-                      ? "bg-white/25 font-semibold"
-                      : "hover:bg-foreground hover:text-blue-500"
-                  }`}
-                >
-                  About Me
-                </span>
-              </Link>
-            </li>
-          </ul>
-        </div>
+          ))}
+        </ul>
 
-        <div className="hidden md:flex">
-          <ThemeSwitcher />
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
-          <Button onClick={toggleDropdown} icon size="small">
-            {isExpanded ? <HiX size={24} /> : <HiMenu size={24} />}
-          </Button>
-        </div>
+        <ThemeSwitcher />
       </div>
 
-      {/* Mobile Dropdown */}
-      <div
-        ref={dropdownRef}
-        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isExpanded ? "max-h-[300px] opacity-100 mt-4" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="glass-effect p-4 rounded-xl mx-4 mt-2">
-          <ul className="flex flex-col gap-3 text-sm">
-            <li>
-              <Link href="/" onClick={() => setIsExpanded(false)}>
-                <span
-                  className={`py-2 px-3 block rounded-md transition-colors duration-100  ${
-                    pathname === "/"
-                      ? "bg-white/25 font-semibold"
-                      : "hover:bg-foreground hover:text-blue-500"
-                  }`}
-                >
-                  Home
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/projects" onClick={() => setIsExpanded(false)}>
-                <span
-                  className={`py-2 px-3 block rounded-md transition-colors duration-100 ${
-                    pathname === "/projects"
-                      ? "bg-white/25  font-semibold"
-                      : "hover:bg-foreground hover:text-blue-500"
-                  }`}
-                >
-                  Projects
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" onClick={() => setIsExpanded(false)}>
-                <span
-                  className={`py-2 px-3 block transition-colors duration-100 rounded-md ${
-                    pathname === "/about"
-                      ? "bg-white/25 font-semibold"
-                      : "hover:bg-foreground hover:text-blue-500"
-                  }`}
-                >
-                  About Me
-                </span>
-              </Link>
-            </li>
-            <li className="mt-3">
-              <ThemeSwitcher />
-            </li>
-          </ul>
+      {/* Mobile */}
+      <div className="lg:hidden bg-white text-blue-500 px-6 flex justify-around items-center rounded-t-2xl w-full">
+        {navbarData.map((item) => (
+          <Link key={item.url} href={item.url} className="flex-1">
+            <div className="relative flex flex-col justify-center items-center text-center gap-2.5 py-3">
+              {path === item.url && (
+                <motion.div
+                  layoutId="mobileActiveTab"
+                  className="absolute inset-0 bg-blue-400/20 rounded-xl"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+              )}
+              {item.icon}
+              <p className="font-thin text-xs">{item.name}</p>
+            </div>
+          </Link>
+        ))}
+
+        {/* Theme Switcher - juga ikut flex-1 agar rata */}
+        <div className="flex-1 flex flex-col items-center justify-center text-center gap-1 py-3 -translate-y-1">
+          <ThemeSwitcher />
+          <p className="font-thin text-xs">Theme</p>
         </div>
       </div>
     </nav>

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   :root {
     --foreground: 255, 255, 255;
@@ -39,7 +43,46 @@
   }
 
   .glass-effect {
-    @apply bg-gradient-to-tl from-white/10 via-white/15 to-white/20 backdrop-blur-md;
+    @apply bg-gradient-to-tl from-white/15 via-white/20 to-white/25 backdrop-blur-md;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Shine effect base, not visible until hover */
+  .shine::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    filter: blur(1px);
+    pointer-events: none;
+  }
+
+  /* Trigger animation on hover */
+  .shine:hover::before {
+    animation: shine-once 0.8s ease-out forwards;
+  }
+
+  /* Keyframes for 1-way shine */
+  @keyframes shine-once {
+    0% {
+      left: -75%;
+    }
+    100% {
+      left: 125%;
+    }
   }
 
   .glass-effect-small {
