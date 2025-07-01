@@ -1,11 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 import { notFound } from "next/navigation";
-import { projectsData } from "@/app/assets/projects"; // Sesuaikan path kamu
+import { Metadata } from "next";
+import { projectsData } from "@/app/assets/projects";
 import { techData } from "@/app/assets/projects";
 import { FaRegFileCode } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
 import Footer from "@/app/components/FooterSection";
 
-type ProjectParams = {
+type Props = {
   params: {
     slug: string;
   };
@@ -17,7 +19,8 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: ProjectParams) {
+// ✅ Correct metadata typing
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = projectsData.find((p) => p.slug === params.slug);
   if (!project) return { title: "Project Not Found" };
 
@@ -27,7 +30,7 @@ export async function generateMetadata({ params }: ProjectParams) {
   };
 }
 
-export default function ProjectDetailPage({ params }: ProjectParams) {
+export default function ProjectDetailPage({ params }: Props) {
   const { slug } = params;
   const project = projectsData.find((p) => p.slug === slug);
 
@@ -44,7 +47,6 @@ export default function ProjectDetailPage({ params }: ProjectParams) {
             <div className="flex-1">
               <p>{project.description}</p>
 
-              {/* TECHNOLOGIES */}
               <div>
                 <h2 className="text-xl font-semibold mt-4 mb-2">
                   Technologies
@@ -66,7 +68,6 @@ export default function ProjectDetailPage({ params }: ProjectParams) {
                 </div>
               </div>
 
-              {/* BUTTON */}
               <div className="flex gap-3 mt-6">
                 {project.urlToCode && (
                   <a
@@ -89,7 +90,6 @@ export default function ProjectDetailPage({ params }: ProjectParams) {
               </div>
             </div>
 
-            {/* FEATURES */}
             <div className="flex-1">
               {project.features.length > 0 && (
                 <div>
