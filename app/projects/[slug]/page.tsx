@@ -5,12 +5,13 @@ import Footer from "@/app/components/FooterSection";
 import { FaRegFileCode } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
 
-export default function ProjectDetailPage({
+export default async function ProjectDetailPage({
   params,
 }: {
-  params: { slug: string }; // ✅ Ini tipe yang benar
+  params: { slug: string };
 }) {
-  const project = projectsData.find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const project = projectsData.find((p) => p.slug === slug);
   if (!project) return notFound();
 
   return (
