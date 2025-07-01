@@ -1,39 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
-import { projectsData } from "@/app/assets/projects";
-import { techData } from "@/app/assets/projects";
+import { projectsData, techData } from "@/app/assets/projects";
+import Footer from "@/app/components/FooterSection";
 import { FaRegFileCode } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
-import Footer from "@/app/components/FooterSection";
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
-
-export function generateStaticParams() {
-  return projectsData.map((project) => ({
-    slug: project.slug,
-  }));
-}
-
-// ✅ Correct metadata typing
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export default function ProjectDetailPage({
+  params,
+}: {
+  params: { slug: string }; // ✅ Ini tipe yang benar
+}) {
   const project = projectsData.find((p) => p.slug === params.slug);
-  if (!project) return { title: "Project Not Found" };
-
-  return {
-    title: project.title,
-    description: project.synopsis,
-  };
-}
-
-export default function ProjectDetailPage({ params }: Props) {
-  const { slug } = params;
-  const project = projectsData.find((p) => p.slug === slug);
-
   if (!project) return notFound();
 
   return (
