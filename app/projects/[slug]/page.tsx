@@ -4,13 +4,13 @@ import { projectsData, techData } from "@/app/assets/projects";
 import Footer from "@/app/components/FooterSection";
 import { FaRegFileCode } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
-
+type tParams = Promise<{ slug: string }>;
 export default async function ProjectDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: tParams;
 }) {
-  const { slug } = await params;
+  const { slug }: { slug: string } = await params;
   const project = projectsData.find((p) => p.slug === slug);
   if (!project) return notFound();
 
