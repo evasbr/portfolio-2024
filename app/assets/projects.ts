@@ -20,6 +20,7 @@ import {
   SiRabbitmq,
   SiStreamlit,
   SiSwagger,
+  SiVercel,
   SiTypescript,
 } from "react-icons/si";
 import { TbBrandNodejs } from "react-icons/tb";
@@ -76,9 +77,9 @@ export const techData: Tech[] = [
   },
   {
     id: 5,
-    name: "Spring boot",
-    icon: SiTypescript,
-    type: "frameworks",
+    name: "Vercel",
+    icon: SiVercel,
+    type: "tools",
   },
   {
     id: 6,
