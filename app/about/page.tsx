@@ -94,7 +94,7 @@ const lastExperienceData: LastExperience[] = [
     role: ["Backend"],
   },
   {
-    title: "Lead developer and CEO of Tipme!",
+    title: "Lead developer Tipme!",
     place: "Tipme! - UPNVJ (Jan 2025 - now)",
     description: [
       "Led fullstack development of a food and drink delivery platform around campus.",
