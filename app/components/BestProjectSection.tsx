@@ -3,15 +3,16 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import Button from "./button";
 import Link from "next/link";
 import { projectsData, techData } from "../assets/projects";
+import "../scroll-animation.css";
 
 export default function BestProjectSection() {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center mt-20">
-      <h2 className="font-serif text-3xl lg:text-5xl text-center md:mb-20 mb-10">
+      <h2 className="autoShow font-serif text-3xl lg:text-5xl text-center md:mb-20 mb-10">
         My Three Best Projects✨
       </h2>
 
-      <div className="p-5 grid grid-cols-1 gap-5 lg:grid-cols-3 lg:gap-8 max-w-7xl">
+      <div className="autoShow p-5 grid grid-cols-1 gap-5 lg:grid-cols-3 lg:gap-8 max-w-7xl">
         {projectsData.slice(0, 3).map((item, index) => {
           return (
             <a key={index} href={`/projects/${item.slug}`}>

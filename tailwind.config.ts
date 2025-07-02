@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-
 export default {
   darkMode: "class",
   content: [
@@ -18,12 +17,6 @@ export default {
         foreground: "rgba(var(--foreground))",
         background: "rgba(var(--background))",
         bforeground: "rgba(var(--button-foreground))",
-        "pastel-white": "#f2ecf1",
-        "pastel-dark-blue": "#accefa",
-        "pastel-orange": "#f7c2b4",
-        "pastel-light-blue": "#cee7f7",
-        "pastel-pink": "#d9b5d3",
-        "pastel-yellow": "#fcf7d7",
       },
     },
   },

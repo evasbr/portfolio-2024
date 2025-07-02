@@ -28,7 +28,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/api/projects/route.js",
-    "libs/ThemeModeProvider.js"
+    "libs/ThemeModeProvider.js",
+    "tailwind.config.js",
+    "tailwind.config.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState, useEffect } from "react";
 import CloudDecor from "./CloudDecor";
 import { FaArrowDownLong, FaLocationDot } from "react-icons/fa6";
 import { Tech, techData } from "../assets/projects";
@@ -7,12 +6,6 @@ import Button from "./button";
 import Link from "next/link";
 
 export default function HeroSection() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) return null;
   return (
     <section
       className={`   
@@ -23,19 +16,21 @@ export default function HeroSection() {
       <div className="flex flex-col lg:gap-32 lg:flex-row-reverse justify-center items-center">
         <div
           className="
+            word
             flex gap-2 justify-center 
             flex-auto lg:flex-col lg:items-end lg:gap-8"
         >
           <img
-            className="aspect-square rounded-full max-w-32 lg:max-w-52 object-cover"
+            className="aspect-square rounded-full w-full max-w-32 lg:max-w-52 object-cover"
             src="https://res.cloudinary.com/dx85szvao/image/upload/v1750563350/self_p0cfh6.webp"
             alt="profile pic"
           />
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 items-center lg:items-start">
           <div className="flex flex-col gap-2">
             <h2
               className="
+              word
             text-center
             text-2xl
             lg:text-3xl/8 lg:text-start
@@ -49,6 +44,8 @@ export default function HeroSection() {
 
             <h2
               className="
+              animation-delay-1
+              word animation-delay-1000
             text-md font-thin text-center
             lg:text-xl/5 lg:text-start 
           "
@@ -61,13 +58,13 @@ export default function HeroSection() {
           </div>
 
           {/* Location */}
-          <p className="flex items-center justify-center text-xs gap-2 lg:justify-start lg:text-sm">
+          <p className="word animation-delay-2 flex items-center justify-center text-xs gap-2 lg:justify-start lg:text-sm">
             <FaLocationDot />
             Jakarta, Indonesia (GMT+7)
           </p>
 
           {/* Tech list */}
-          <div className="flex gap-2 max-w-sm flex-wrap justify-center lg:justify-start">
+          <div className="word animation-delay-2 flex gap-2 max-w-sm flex-wrap justify-centerlg:justify-start">
             {techData.map((item: Tech, index) => {
               if (item.type === "tools") return null;
               return (
@@ -80,7 +77,7 @@ export default function HeroSection() {
           </div>
 
           {/* Button */}
-          <div className="mt-5 lg:mt-0 flex gap-4 justify-center lg:justify-start">
+          <div className="word animation-delay-2 mt-5 lg:mt-0 flex gap-4 justify-center lg:justify-start">
             <Link href="/projects">
               <Button size={"small"}>View Projects</Button>
             </Link>

@@ -9,6 +9,7 @@ import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 import { Tech, techData } from "../assets/projects";
+import "../scroll-animation.css";
 
 type Role =
   | "All round"
@@ -185,17 +186,17 @@ export default function About() {
         <Navbar />
 
         {/* INTRODUCTION SECTION */}
-        <section className="h-full flex flex-col items-center justify-start gap-10 pt-32 mb-12 md:mb-4 md:py-20">
+        <section className="h-full flex flex-col items-center justify-start gap-10 pt-32 mb-12 md:mb-4 md:py-24">
           <img
-            className="aspect-square rounded-full max-w-36 object-cover"
+            className="fade-in aspect-square rounded-full max-w-36 object-cover"
             src="https://res.cloudinary.com/dx85szvao/image/upload/v1750563350/self_p0cfh6.webp"
             alt="profile pic"
           />
-          <h3 className="flex text-3xl font-bold items-center">
+          <h3 className="flex fade-in text-3xl font-bold items-center">
             Hi! I&apos;m Eva Sabrina
           </h3>
 
-          <div className="p-5 flex-1 flex flex-col gap-5 max-w-5xl">
+          <div className="p-5 fade-in flex-1 flex flex-col gap-5 max-w-5xl">
             <p className="text-xl mb-4">
               <span className="font-semibold text-amber-300">
                 Hi! I’m Eva Sabrina👋{" "}

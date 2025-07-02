@@ -22,7 +22,7 @@ export default function CloudDecor() {
             : "https://res.cloudinary.com/dx85szvao/image/upload/v1750498684/cloud-1-day_fxscue.webp"
         }
         alt=""
-        className="absolute top-0 left-0 w-[30%] md:w-[20%] lg:w-[15%] -z-50"
+        className="fade-in absolute top-0 left-0 w-[30%] md:w-[20%] lg:w-[15%] -z-50"
       />
 
       <img
@@ -32,7 +32,7 @@ export default function CloudDecor() {
             : "https://res.cloudinary.com/dx85szvao/image/upload/v1750498683/cloud-2-day_xigyji.webp"
         }
         alt=""
-        className="absolute -top-10 right-0 w-[40%] md:w-[20%] -z-50"
+        className="fade-in absolute -top-10 right-0 w-[40%] md:w-[20%] -z-50"
       />
     </>
   );
