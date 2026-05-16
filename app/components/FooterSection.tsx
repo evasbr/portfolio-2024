@@ -45,14 +45,14 @@ export default function Footer() {
             flex flex-col gap-2 mt-10 items-start
             "
         >
-          <a target="_blank" href="https://www.linkedin.com/in/eva-sabrina/">
+          <a target="_blank" href="https://id.linkedin.com/in/eva-sabrina/">
             <Button size="small">
               <AiFillLinkedin size={24} /> Eva Sabrina
             </Button>
           </a>
-          <a target="_blank" href="mailto:evasbr19@gmail.com">
+          <a target="_blank" href="mailto:evasabrina.work@gmail.com">
             <Button size="small">
-              <AiFillMail size={24} /> evasbr19@gmail.com
+              <AiFillMail size={24} /> evasabrina.work@gmail.com
             </Button>
           </a>
           <a target="_blank" href="https://github.com/evasbr">
